@@ -1,4 +1,5 @@
 package com.Calculo;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,8 +34,10 @@ public class CalcMayoriaRelativa {
 		
 		for(String option:options)
 		{
+			
 			resultados.put(option.toLowerCase(), 0);
 		}
+		
 		
 		for(String vote:votes)
 		{
@@ -45,11 +48,16 @@ public class CalcMayoriaRelativa {
 			}
 			
 		}
+		for(String option:options)
+		{
+			System.out.println(option+"->"+resultados.get(option.toLowerCase()));
+		}
+		
 	 	int votosGanador=0;
 		
 		for(String option:options)
 		{
-			int num=resultados.get(option);
+			int num=resultados.get(option.toLowerCase());
 			if(num>votosGanador)
 			{
 				ganador.clear();

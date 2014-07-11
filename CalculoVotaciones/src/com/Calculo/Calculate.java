@@ -1,4 +1,5 @@
 package com.Calculo;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -105,9 +106,10 @@ public class Calculate {
 		System.out.println("//////////////////////////////// RESULTADOS ///////////////");
 		for(String option:options)
 		{
-			System.out.println(option+"->"+resultados.get(option));
+			System.out.println(option+"->"+resultados.get(option.toLowerCase()));
 		}
-		int votosGanador=resultados.get(ganadores.get(0));
+		
+		int votosGanador=resultados.get(ganadores.get(0).toLowerCase());
 		if(ganadores.size()>1)
 		{
 			System.out.print("\n\n Hay un EMPATE entre ");
