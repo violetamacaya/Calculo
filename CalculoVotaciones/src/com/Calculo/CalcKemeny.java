@@ -140,7 +140,7 @@ public class CalcKemeny {
 	/*
 	 * x debe ser siempre igual a 1(x=1) en la primera llamada
 	 */
-	private static List<String> CalcularOpcionesKemeny(int x,List<List<String>> opciones)
+	public static List<String> CalcularOpcionesKemeny(int x,List<List<String>> opciones)
 	{
 		
 		List<String> lista=null;
