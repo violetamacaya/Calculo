@@ -28,6 +28,7 @@ public class CalcKemeny {
 		
 		Map<String,Integer> mapa=iniciarMapa(opcionesKemeny);
 		
+		permutaciones.clear();
 		calcularPermutaciones(permutaciones,opcionesKemeny,"",opcionesKemeny.size(),opcionesKemeny.size());
 		
 		//POSIBLE CAMBIO PASANDOLE LAS OPCIONEKEMENY
