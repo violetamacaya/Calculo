@@ -8,7 +8,7 @@ public class CalcRangeVoting {
 
 	
 	
-	public static Map<String,Integer>  CalcRangeVoting(List<String>opciones,int min,int max,List<List<String>>votos,List<String>winner)
+	public static Map<String,Integer>  CalculateRangeVoting(List<String>opciones,int min,int max,List<List<String>>votos,List<String>winner)
 	{
 		Map<String,Integer> resultados=new HashMap<String,Integer>();
 		for(String opcion:opciones)
