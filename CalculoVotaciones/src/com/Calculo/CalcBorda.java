@@ -34,7 +34,21 @@ public class CalcBorda {
 				current++;
 			}
 		}
-		
+		int win=0;
+		for(String option:opcionesBorda)
+		{
+			int act=map.get(option);
+			if(act>win)
+			{
+				win=act;
+				winner.clear();
+				winner.add(option);
+			}
+			else if(act==win)
+			{
+				winner.add(option);
+			}
+		}
 		
 		return map;
 	}
