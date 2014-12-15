@@ -183,8 +183,4 @@ public class CalcBorda {
 		
 		return votosValidos;	
 	}
-	
-	
-	
-	
 }
