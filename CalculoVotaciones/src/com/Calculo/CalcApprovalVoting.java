@@ -1,41 +1,81 @@
 package com.Calculo;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 
 public class CalcApprovalVoting
 {
-
-	private int m_Max;
-	private List<String> m_Choices = new ArrayList<String>();
-
-	public
-	CalcApprovalVoting (int numberOfChoices)
+	public static Map<String,Integer> CalculateApprovalVoting(List<String> options,List<String> votes)
 	{
-		m_Max = numberOfChoices + 66;
-
-		for(int i = 65; i < 65 + numberOfChoices; i++)
-			Populate("", i);
-	}
-
-	private void
-	Populate (String orig, int end)
-	{
-		orig += (char)end;
-
-		for(int i = end+1; i < m_Max; i++)
+		Map<String,Integer> resultados=new HashMap<String,Integer>();
+		
+		for(String option:options)
 		{
-			if(!m_Choices.contains(orig))
-				m_Choices.add(orig);
-			Populate(orig, i);
+			resultados.put(option.toLowerCase(), 0);
+			//Inicialmente no hay ningun voto en las opciones
 		}
+		
+		for(String vote:votes)
+		{
+			Integer num = resultados.get(vote.toLowerCase());
+			if(num != null)
+			{
+				resultados.put(vote.toLowerCase(), num+1);
+			}
+			
+		}
+		return resultados;
+	}
+	
+	
+	public static Map<String,Integer> CalculateApprovalVoting(List<String> options,List<String> votes,List<String> ganador)
+	{
+		Map<String,Integer> resultados=new HashMap<String,Integer>();
+		
+		for(String option:options)
+		{
+			
+			resultados.put(option.toLowerCase(), 0);
+		}
+		
+		
+		for(String vote:votes)
+		{
+			Integer num=resultados.get(vote.toLowerCase());
+			if(num!=null)
+			{
+				resultados.put(vote.toLowerCase(), num+1);
+			}
+			
+		}
+		for(String option:options)
+		{
+			System.out.println(option+"->"+resultados.get(option.toLowerCase()));
+		}
+		
+	 	int votosGanador=0;
+		
+		for(String option:options)
+		{
+			int num=resultados.get(option.toLowerCase());
+			if(num>votosGanador)
+			{
+				ganador.clear();
+				ganador.add(option);
+				votosGanador=num;
+			}
+			else if(num==votosGanador)
+			{
+				ganador.add(option);
+			}
+			
+		}
+		
+		return resultados;
 	}
 
-	public List<String>
-	getPossible ()
-	{
-		return m_Choices;
-	}
 
 
 }
