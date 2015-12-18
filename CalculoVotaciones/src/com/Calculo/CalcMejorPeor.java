@@ -1,51 +1,37 @@
 package com.Calculo;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CalcMejorPeor {
-	public static Map<String,Integer> CalculateMejorPeorPos(List<String> options,List<String> votesPos)
+	public static HashMap<String,Integer> CalculateMejorPeor(List<String> options,List<String> votesPos, List<String> votesNeg)
 	{
-	Map<String,Integer> resultados=new HashMap<String,Integer>();
-		
+		HashMap<String,Integer> resultados=new HashMap<String,Integer>();
+
 		for(String option:options)
 		{
-			resultados.put(option.toLowerCase(), 0);
+			resultados.put(option, 0);
 			//Inicialmente no hay ningun voto en las opciones
+			int frecuenciaPos = Collections.frequency(votesPos, option);
+			int frecuenciaNeg = Collections.frequency(votesNeg, option);
+			int score = frecuenciaPos - frecuenciaNeg;
+			resultados.put(option, score);
+			System.out.println("Score: "+score);
 		}
-		
+/*
 		for(String vote:votesPos)
 		{
 			Integer num = resultados.get(vote.toLowerCase());
-			if(num != null)
-			{
-				resultados.put(vote.toLowerCase(), num+1);
-			}
-			
+			resultados.put(vote.toLowerCase(), num+1);
+
 		}
-		return resultados;
-	}	
-	
-	public static Map<String,Integer> CalculateMejorPeorNeg(List<String> options,List<String> votesNeg)
-	{
-	Map<String,Integer> resultados=new HashMap<String,Integer>();
-		
-		for(String option:options)
-		{
-			resultados.put(option.toLowerCase(), 0);
-			//Inicialmente no hay ningun voto en las opciones
-		}
-		
 		for(String vote:votesNeg)
 		{
-			Integer num = resultados.get(vote.toLowerCase());
-			if(num != null)
-			{
-				resultados.put(vote.toLowerCase(), num+1);
-			}
-			
+			int numNeg = Integer.parseInt(resultados.get(vote.toLowerCase()).toString());
+			resultados.put(vote.toLowerCase(), numNeg-1);
 		}
+*/
 		return resultados;
 	}	
 }

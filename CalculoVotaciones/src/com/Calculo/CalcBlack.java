@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 public class CalcBlack {
@@ -58,11 +57,11 @@ public class CalcBlack {
 			}
 			for(List<String> voto:votes){
 				HashMap<String, Integer> ordenado = new HashMap<String, Integer>();
-				for(int i=0; i<options.size()-1; i++){
+				for(int i=0; i<options.size(); i++){
 					ordenado.put(options.get(i), Integer.parseInt(voto.get(i)));
 				}
 				List<String> lista= options;
-				for(int i=0;i<lista.size()-1;i++)
+				for(int i=0;i<lista.size();i++)
 				{
 					for(int j=0;j<lista.size()-i-1;j++)
 					{
