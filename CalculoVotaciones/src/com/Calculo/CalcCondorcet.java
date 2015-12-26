@@ -10,11 +10,11 @@ public class CalcCondorcet {
 	
 	public static Map<String,Integer> CalculateCondorcet(List<String> opciones, List<List<String>> votes)
 	{
-		Map<String,Integer> resultados=new LinkedHashMap<String,Integer>();
+		Map<String,Integer> ganadores=new LinkedHashMap<String,Integer>();
 		
 		for(String option:opciones)
 		{
-			resultados.put(option,0);
+			ganadores.put(option,0);
 		}
 		for(List<String> voto:votes)
 		{
@@ -23,19 +23,19 @@ public class CalcCondorcet {
 				int contadorComparador = 0;
 				for(String comparador : voto){
 					if(Integer.parseInt(prioridad) > Integer.parseInt(comparador) && contador != contadorComparador){
-						String opcionVoto = resultados.keySet().toArray()[contador].toString();
-						int valorVoto = resultados.get(opcionVoto);
-						resultados.put(opcionVoto, valorVoto +1);
+						String opcionVoto = ganadores.keySet().toArray()[contador].toString();
+						int valorVoto = ganadores.get(opcionVoto);
+						ganadores.put(opcionVoto, valorVoto +1);
 					}
 					else if(Integer.parseInt(prioridad) == Integer.parseInt(comparador) && contador != contadorComparador){
-						String opcionVoto = resultados.keySet().toArray()[contador].toString();
-						int valorVoto = resultados.get(opcionVoto);
-						resultados.put(opcionVoto, valorVoto +1);
+						String opcionVoto = ganadores.keySet().toArray()[contador].toString();
+						int valorVoto = ganadores.get(opcionVoto);
+						ganadores.put(opcionVoto, valorVoto +1);
 						//Sobre ambos votos, porque son iguales.
 						
-						String opcionVotoComp = resultados.keySet().toArray()[contadorComparador].toString();
-						int valorVotoComp = resultados.get(opcionVotoComp);
-						resultados.put(opcionVotoComp, valorVotoComp +1);
+						String opcionVotoComp = ganadores.keySet().toArray()[contadorComparador].toString();
+						int valorVotoComp = ganadores.get(opcionVotoComp);
+						ganadores.put(opcionVotoComp, valorVotoComp +1);
 					}
 					contadorComparador++;
 					
@@ -44,6 +44,6 @@ public class CalcCondorcet {
 			}
 		}
 		
-		return resultados;
+		return ganadores;
 	}
 }
