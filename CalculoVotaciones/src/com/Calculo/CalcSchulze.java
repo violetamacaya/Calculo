@@ -139,7 +139,7 @@ public class CalcSchulze {
 			List<String> newVote = new LinkedList<String>();
 
 			for (String option:vote) {
-				String newOption = options.get(Integer.parseInt(option) -1 );
+				String newOption = options.get(Integer.parseInt(option));
 				newVote.add(newOption);
 			}
 

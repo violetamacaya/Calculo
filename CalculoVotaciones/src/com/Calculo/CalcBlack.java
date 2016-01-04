@@ -10,6 +10,7 @@ import java.util.Set;
 
 public class CalcBlack {
 
+	@SuppressWarnings("unchecked")
 	public static Map<String, Integer> CalculateBlack(List<String> options, List<List<String>> votes) {
 		Map<String,Integer> resultados=new LinkedHashMap<String,Integer>();
 
@@ -46,6 +47,7 @@ public class CalcBlack {
 		}
 		//Hasta aquí el metodo condorcet. Hay que comprobar si hay empates.
 
+		@SuppressWarnings("rawtypes")
 		List<Integer> valores = new ArrayList(resultados.values());
 		Set<Integer> valoresUnicos = new HashSet<Integer>(resultados.values());
 		if(valores.size() != valoresUnicos.size()){
